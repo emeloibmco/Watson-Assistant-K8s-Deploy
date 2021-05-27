@@ -22,15 +22,27 @@ Finalmente se explica como se puede realizar el despliegue de la aplicación en 
 + Haga clic en Mostrar para ver las credenciales del servicio.
 + Copie el valor de **apikey**. 
 + Copie el valor de la **URL**.
-4. Descargar en su máquina el archivo **banking_workspace.json**, lo puede hacer clonando este repositorio.
+4. Clonar el repositorio en su máquina.
 
 ## Paso 1
 ## Configurar la aplicación
 1. En su consola de IBM Cloud, abra la instancia de servicio Watson Assistant.
 2. En la pestaña **Skills** de click en el botón **Create skill**.
 3. Seleccione la opción **Dialog skill** y luego siguiente.
-4. De click en la pestaña **Upload skill**, seleccione el archivo **banking_workspace.json** y luego de click en **Import**.
+4. De click en la pestaña **Upload skill**, seleccione el archivo **banking_workspace.json** que se encuentra en la carpeta training y luego de click en **Import**.
 5. En la pestaña **Assistants** de click en el botón **Create assistant**.
 6. Asigne un nombre al asistente y de click en **Create assistant**.
 7. En la ventana del asistente, de click en **Add dialog skill** y seleccione el skill creado con aterioridad.
-<p align="center"><img width="600" src="https://github.com/emeloibmco/IBM-Cloud-Monitoring-Windows-Agent-VM/blob/main/windowssysdig/Paso1.gif"></p>
+<p align="center"><img width="600" src="https://github.com/emeloibmco/Watson-Assistant-K8s-Deploy/blob/main/bank/bank1.gif"></p>
+
+8. En el cmd de windows copie el archivo .env.example y cree uno llamado .env con el siguiente comando
+```
+copy .env.example .env
+```
+9. Abra el archivo .env y agregue las credenciales copiadas en los prerequisitos de servicio que obtuvo en el paso anterior y el ID del asistente que puede encontar en las configuraciones del asistente.
+```
+ASSISTANT_ID=
+ASSISTANT_IAM_APIKEY=
+ASSISTANT_URL=
+```
+10.  

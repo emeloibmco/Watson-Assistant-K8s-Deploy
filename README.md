@@ -5,7 +5,7 @@ Finalmente se explica como se puede realizar el despliegue de la aplicación en 
 ## Indice  :book:
 1. [Pre-Requisitos](#Pre-Requisitos)
 2. [Paso 1. Configurar la aplicación](#Paso-1)
-3. [Paso 2. Despliegue del modelo Machine Learning](#Paso-2)
+3. [Paso 2. Ejecución local](#Paso-2)
 4. [Paso 3. Cambio de credenciales según el servicio creado](#Paso-3)
 5. [Paso 4. Ejecución local y prueba](#Paso-4)
 6. [Paso 5. Despliegue de aplicación Backend](#Paso-5)
@@ -39,10 +39,67 @@ Finalmente se explica como se puede realizar el despliegue de la aplicación en 
 ```
 copy .env.example .env
 ```
-9. Abra el archivo .env y agregue las credenciales copiadas en los prerequisitos de servicio que obtuvo en el paso anterior y el ID del asistente que puede encontar en las configuraciones del asistente.
+9. Abra el archivo .env y agregue las credenciales del servicio copiadas en los prerequisitos que obtuvo en el paso anterior y el ID del asistente que puede encontar en las configuraciones del asistente.
 ```
 ASSISTANT_ID=
 ASSISTANT_IAM_APIKEY=
 ASSISTANT_URL=
 ```
-10.  
+## Paso 2
+## Ejecución local
+1. Instale las dependencias npm
+```
+npm install
+```
+2. Ejecute la aplicación
+```
+npm start
+```
+3. Visualice y pruebe la aplicación dirigiendose a desde su navegador a la dirección ```http://localhost:3000/```
+
+## Paso 3
+## Despliegue de la aplicación en Kubernetes
+1. En la ventana de comandos, donde estaba corriendo la aplicación, debe para el proceso con **Ctrl+C**.
+2. Ejecutar el comando ```docker build -t <nombre-imagen:tag> . ```. Establezca cualquier nombre a la imagen y como tag **v1**, posteriormente en docker se debe verificar que aparezca la imagen creada.
+3. En Docker, de click en **Run** a la imagen creada, luego **Optional Settings** y digitar 8080 en localhost. Para verificar el funcionamiento nos dirigimos al navegador y colocamos ```http://localhost:8080```, como resultado se puede observar la aplicación nuevamente.
+4. Ingrese a su cuenta de IBM por medio del PowerShell ejecutando el comando
+```
+ibmcloud login --sso
+```
+>**NOTA**: Se debe tener creado en la cuenta el cluster donde se va a desplegar la app.
+7. Ejecutar el comando donde se selecciona el grupo de recursos donde esta el cluster 
+```
+ibmcloud target -g <nombre-recurso>
+```
+9. Ingresar al container registry ejecutando el comando 
+```
+ibmcloud cr login
+```
+10. Añadir un espacio con el comando 
+```
+ibmcloud cr namespace-add <nombre-espacio>
+```
+11. Ejecutar el comando que añade la imagen docker en el espacio creado
+```
+docker tag <nombre-imagen:tag> us.icr.io/<nombre-espacio>/<nombre-imagen:tag>
+```
+12. Ejecutar el comando
+ ```
+ docker push us.icr.io/<nombre-espacio>/<nombre-imagen:tag>
+ ```
+13. Ingresar al cluster donde se va a desplegar la aplicación  
+```
+ibmcloud ks cluster config --cluster <nombre-cluster>
+```
+14. Crear el despliegue con el comando 
+```
+kubectl create deployment <nombre-despliegue> --image=us.icr.io/<nombre-espacio>/<nombre-imagen:tag>
+```
+15. Exponer el despliegue
+```
+kubectl expose deployment/<nombre-despliegue> --type=LoadBalancer --name=<nombre-app>  --port=<puerto-especificado-en-dockerfile> --target-port=<puerto-especificado-en-dockerfile>
+```
+16. Ingresar desde IBM Cloud al panel de kubernetes y buscar el despliegue, verificar que no existan errores.
+17. Ir a la pestaña SERVICES y dar click en la URL mostrada en la columna External Points
+>**NOTA**: Debe esperar unos minutos mientras se realiza el despliegue, refresque la página y verifique que no salgan errores de carga
+<p align="center"><img width="800" src="https://github.com/emeloibmco/Watson-NLU-NodeJS-Application/blob/main/Imagenes/Picture2.jpg"></p>

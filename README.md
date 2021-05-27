@@ -9,7 +9,7 @@ Finalmente se explica como se puede realizar el despliegue de la aplicación en 
 4. [Paso 3. Despliegue de la aplicación en Kubernetes](#Paso-3)
 
 
-## Prerrequisitos
+## Pre-Requisitos
 
 1. Regístrese para obtener una cuenta de IBM Cloud.
 2. Descargue la CLI de IBM Cloud.
@@ -37,7 +37,7 @@ Finalmente se explica como se puede realizar el despliegue de la aplicación en 
 ```
 copy .env.example .env
 ```
-9. Abra el archivo .env y agregue las credenciales del servicio copiadas en los prerequisitos que obtuvo en el paso anterior y el ID del asistente que puede encontar en las configuraciones del asistente.
+9. Abra el archivo .env y agregue las credenciales del servicio copiadas en los pre-requisitos que obtuvo en el paso anterior y el ID del asistente que puede encontar en las configuraciones del asistente.
 ```
 ASSISTANT_ID=
 ASSISTANT_IAM_APIKEY=

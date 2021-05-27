@@ -6,10 +6,8 @@ Finalmente se explica como se puede realizar el despliegue de la aplicación en 
 1. [Pre-Requisitos](#Pre-Requisitos-📝)
 2. [Paso 1. Configurar la aplicación](#Paso-1)
 3. [Paso 2. Ejecución local](#Paso-2)
-4. [Paso 3. Cambio de credenciales según el servicio creado](#Paso-3)
-5. [Paso 4. Ejecución local y prueba](#Paso-4)
-6. [Paso 5. Despliegue de aplicación Backend](#Paso-5)
-7. [Paso 6. Despliegue de aplicación Frontend](#Paso-6)
+4. [Paso 3. Despliegue de la aplicación en Kubernetes](#Paso-3)
+
 
 ## Prerrequisitos 📝
 

@@ -3,13 +3,13 @@ En esta aplicación de muestra, se visualiza la interacción con un asistente vi
 Finalmente se explica como se puede realizar el despliegue de la aplicación en Kubernetes. <p align="center"><img width="800" src="https://github.com/emeloibmco/Watson-Assistant-K8s-Deploy/blob/main/bank/bankbot.jpg"></p>
 
 ## Indice  :book:
-1. [Pre-Requisitos](#Pre-Requisitos-📝)
+1. [Pre-Requisitos](#Pre-Requisitos)
 2. [Paso 1. Configurar la aplicación](#Paso-1)
 3. [Paso 2. Ejecución local](#Paso-2)
 4. [Paso 3. Despliegue de la aplicación en Kubernetes](#Paso-3)
 
 
-## Prerrequisitos 📝
+## Prerrequisitos
 
 1. Regístrese para obtener una cuenta de IBM Cloud.
 2. Descargue la CLI de IBM Cloud.

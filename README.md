@@ -1,6 +1,6 @@
 # Watson-Assistant-K8s-Deploy :rocket:
 En esta aplicación de muestra, se visualiza la interacción con un asistente virtual bancario. El asistente simula algunos escenarios, como realizar un pago con tarjeta de crédito, reservar una cita con un asesor y elegir una tarjeta de crédito. Watson puede comprender sus entradas y responder en consecuencia.
-Finalmente se explica como se puede realizar el despliegue de la aplicación en Kubernetes.
+Finalmente se explica como se puede realizar el despliegue de la aplicación en Kubernetes. <p align="center"><img width="800" src="https://github.com/emeloibmco/Watson-Assistant-K8s-Deploy/blob/main/bank/bankbot.jpg"></p>
 
 ## Indice  :book:
 1. [Pre-Requisitos](#Pre-Requisitos-📝)
@@ -101,7 +101,8 @@ kubectl expose deployment/<nombre-despliegue> --type=LoadBalancer --name=<nombre
 ```
 16. Ingresar desde IBM Cloud al panel de kubernetes y buscar el despliegue, verificar que no existan errores.
 17. Ir a la pestaña SERVICES y dar click en la URL mostrada en la columna External Points la cual cargará la aplicación
-<p align="center"><img width="800" src="https://github.com/emeloibmco/Watson-Assistant-K8s-Deploy/blob/main/bank/bankbot.jpg"></p>
+<p align="center"><img width="800" src="https://github.com/emeloibmco/Watson-Assistant-K8s-Deploy/blob/main/bank/demo.gif"></p>
+
 
 >**NOTA**: Debe esperar unos minutos mientras se realiza el despliegue, refresque la página y verifique que no salgan errores de carga
 

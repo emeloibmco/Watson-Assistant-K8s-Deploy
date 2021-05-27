@@ -1,0 +1,9 @@
+---
+applications:
+  - name: watson-assistant-bank
+    command: npm start
+    buildpack: sdk-for-nodejs
+    env:
+      NODE_ENV: production
+#docker:
+ # image: us.icr.io/watsonbank/bankbot:v1
